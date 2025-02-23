@@ -1,7 +1,3 @@
-// FashnAPI configuration (replace these with your actual values)
-const FASHN_API_URL = "https://api.fashn.ai/v1";  // Example: https://api.fashn.ai
-const FASHN_API_KEY = "fa-nDicHHggyx5o-JdloP0aTQUk9fYUzQChIPgvY";
-
 // Utility function to parse query parameters
 function getQueryParams() {
   const params = {};
@@ -15,17 +11,14 @@ function getQueryParams() {
 }
 
 const params = getQueryParams();
-const garmentImageUrl = params.garment;
-let fullGarmentImageUrl = garmentImageUrl;
-if (!/^https?:\/\//i.test(garmentImageUrl)) {
-  fullGarmentImageUrl = window.location.origin + '/' + garmentImageUrl;
-}
+const garmentImageUrl = params.garment || 'images/placeholder.png';
+
+// Ensure correct path handling
+let fullGarmentImageUrl = garmentImageUrl.startsWith('http') ? garmentImageUrl : window.location.origin + '/' + garmentImageUrl;
 document.getElementById('garmentImg').src = fullGarmentImageUrl;
 
-// Variable to store model image data URL
+// Handle Model Image Upload
 let modelImageDataUrl = null;
-
-// Convert the uploaded file to a data URL
 document.getElementById('modelImageInput').addEventListener('change', function(event) {
   const file = event.target.files[0];
   if (file) {
@@ -57,56 +50,46 @@ document.getElementById('startBtn').addEventListener('click', async function() {
   };
 
   const headers = {
-    "Authorization": `Bearer ${FASHN_API_KEY}`,
+    "Authorization": `Bearer fa-nDicHHggyx5o-JdloP0aTQUk9fYUzQChIPgvY`,
     "Content-Type": "application/json"
   };
 
   try {
-    // Initiate the prediction
-    let response = await fetch(`${FASHN_API_URL}/run`, {
+    let response = await fetch("https://api.fashn.ai/v1/run", {
       method: "POST",
       headers: headers,
       body: JSON.stringify(payload)
     });
 
     if (!response.ok) {
-      resultDiv.innerHTML = `Failed to initiate prediction: ${await response.text()}`;
+      resultDiv.innerHTML = `Failed: ${await response.text()}`;
       return;
     }
 
     let data = await response.json();
     const predictionId = data.id;
-    if (!predictionId) {
-      resultDiv.innerHTML = "Error: No prediction ID returned.";
-      return;
-    }
 
-    resultDiv.innerHTML = "Prediction initiated. Please wait while we process your images...";
+    resultDiv.innerHTML = "Processing...";
 
-    // Poll for the prediction result
     while (true) {
-      let statusResponse = await fetch(`${FASHN_API_URL}/status/${predictionId}`, { headers: headers });
+      let statusResponse = await fetch(`https://api.fashn.ai/v1/status/${predictionId}`, { headers: headers });
       let statusData = await statusResponse.json();
 
       if (statusData.status === "completed") {
         const outputUrl = statusData.output && statusData.output[0];
         if (outputUrl) {
-          resultDiv.innerHTML = `<p>Your result is ready!</p><img src="${outputUrl}" alt="Result Image">`;
+          resultDiv.innerHTML = `<p>Result Ready!</p><img src="${outputUrl}" alt="Result">`;
         } else {
-          resultDiv.innerHTML = "Error: No output image found.";
+          resultDiv.innerHTML = "Error: No output image.";
         }
         break;
       } else if (statusData.status === "failed") {
-        // Log the API error details if available
-        const apiError = statusData.error ? `<br>Error Details: ${statusData.error.name} - ${statusData.error.message}` : '';
-        resultDiv.innerHTML = `The prediction failed. Please try again.${apiError}`;
+        resultDiv.innerHTML = `Prediction failed. Try again.`;
         break;
-      } else {
-        // Still processing; wait for 5 seconds before polling again
-        await new Promise(resolve => setTimeout(resolve, 5000));
       }
+      await new Promise(resolve => setTimeout(resolve, 5000));
     }
   } catch (error) {
-    resultDiv.innerHTML = "An error occurred: " + error.message;
+    resultDiv.innerHTML = "Error: " + error.message;
   }
 });
