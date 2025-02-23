@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shirt Catalogue</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Your Brand Name</h1>
+    <p>Digital Catalogue of Shirts</p>
+  </header>
+
+  <section class="catalogue">
+    <h2>Catalogue</h2>
+    <input type="text" id="searchInput" placeholder="Enter Shirt ID..." />
+    <button id="searchBtn">Search</button>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <!-- Fuse.js for client‑side search -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
