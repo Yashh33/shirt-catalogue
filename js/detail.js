@@ -14,19 +14,41 @@ const params = getQueryParams();
 const garmentImageUrl = params.garment || 'images/placeholder.png';
 
 // Ensure correct path handling
-let fullGarmentImageUrl = garmentImageUrl.startsWith('http') ? garmentImageUrl : window.location.origin + '/' + garmentImageUrl;
+let fullGarmentImageUrl = garmentImageUrl.startsWith('http')
+  ? garmentImageUrl
+  : window.location.origin + '/' + garmentImageUrl;
 document.getElementById('garmentImg').src = fullGarmentImageUrl;
 
-// Handle Model Image Upload
+// Function to compress the image using Canvas API
+function compressImage(file, quality, callback) {
+  const reader = new FileReader();
+  reader.onload = function(event) {
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      // Set canvas dimensions to image dimensions
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      // Compress the image to JPEG with the given quality
+      const dataUrl = canvas.toDataURL('image/jpeg', quality);
+      callback(dataUrl);
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// Handle Model Image Upload with compression
 let modelImageDataUrl = null;
 document.getElementById('modelImageInput').addEventListener('change', function(event) {
   const file = event.target.files[0];
   if (file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      modelImageDataUrl = e.target.result;
-    };
-    reader.readAsDataURL(file);
+    // Adjust quality factor as needed (0.7 is a starting point)
+    compressImage(file, 0.7, function(compressedDataUrl) {
+      modelImageDataUrl = compressedDataUrl;
+    });
   }
 });
 

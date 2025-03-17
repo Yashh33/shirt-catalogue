@@ -1,31 +1,142 @@
 [
-    {
-      "id": "001",
-      "image": "https://yashh33.github.io/shirt-catalogue/images/shirt1.png"
-    },
-    {
-      "id": "002",
-      "image": "https://yashh33.github.io/shirt-catalogue/images/shirt2.png"
-    },
-    {
-      "id": "003",
-      "image": "https://yashh33.github.io/shirt-catalogue/images/shirt3.png"
-    },
-    {
-      "id": "004",
-      "image": "https://yashh33.github.io/shirt-catalogue/images/shirt4.png"
-    },
-    {
-      "id": "005",
-      "image": "https://yashh33.github.io/shirt-catalogue/images/shirt5.png"
-    },
-    {
-      "id": "006",
-      "image": "https://yashh33.github.io/shirt-catalogue/images/shirt6.png"
-    },
-    {
-      "id": "007",
-      "image": "https://yashh33.github.io/shirt-catalogue/images/shirt7.png"
-    }
-  ]
-  
+  {
+    "id": "001",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt1.png"
+  },
+  {
+    "id": "002",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt2.png"
+  },
+  {
+    "id": "003",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt3.png"
+  },
+  {
+    "id": "004",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt4.png"
+  },
+  {
+    "id": "005",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt5.png"
+  },
+  {
+    "id": "006",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt6.png"
+  },
+  {
+    "id": "007",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt7.png"
+  },
+  {
+    "id": "008",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt8.png"
+  },
+  {
+    "id": "009",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt9.png"
+  },
+  {
+    "id": "010",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt10.png"
+  },
+  {
+    "id": "011",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt11.png"
+  },
+  {
+    "id": "012",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt12.png"
+  },
+  {
+    "id": "013",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt13.png"
+  },
+  {
+    "id": "014",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt14.png"
+  },
+  {
+    "id": "015",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt15.png"
+  },
+  {
+    "id": "016",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt16.png"
+  },
+  {
+    "id": "017",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt17.png"
+  },
+  {
+    "id": "018",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt18.png"
+  },
+  {
+    "id": "019",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt19.png"
+  },
+  {
+    "id": "020",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt20.png"
+  },
+  {
+    "id": "021",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt21.png"
+  },
+  {
+    "id": "022",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt22.png"
+  },
+  {
+    "id": "023",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt23.png"
+  },
+  {
+    "id": "024",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt24.png"
+  },
+  {
+    "id": "025",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt25.png"
+  },
+  {
+    "id": "026",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt26.png"
+  },
+  {
+    "id": "027",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt27.png"
+  },
+  {
+    "id": "028",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt28.png"
+  },
+  {
+    "id": "029",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt29.png"
+  },
+  {
+    "id": "030",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt30.png"
+  },
+  {
+    "id": "031",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt31.png"
+  },
+  {
+    "id": "032",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt32.png"
+  },
+  {
+    "id": "033",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt33.png"
+  },
+  {
+    "id": "034",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt34.png"
+  },
+  {
+    "id": "035",
+    "image": "https://yashh33.github.io/shirt-catalogue/images/shirt35.png"
+  }  
+]
